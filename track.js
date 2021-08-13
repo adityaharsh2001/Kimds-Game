@@ -43,11 +43,10 @@ window.addEventListener("load", () => {
         var span = document.getElementsByClassName("close")[0];
       } else {
         var modal = document.getElementById("wrong");
+        var span = document.getElementsByClassName("close")[1];
       }
       btn.onclick = function () {
         modal.style.display = "block";
-        var span = document.getElementsByClassName("close")[1];
-
         span.onclick = function () {
           modal.style.display = "none";
         };
