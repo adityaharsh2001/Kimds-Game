@@ -14,10 +14,10 @@ window.addEventListener("load", () => {
     newchild[i].style.backgroundColor = "#f86624";
   }
   for (i = 22; i < 32; ++i) {
-    newchild[i].style.backgroundColor = "#2ab7ca";
+    newchild[i].style.backgroundColor = "#106874";
   }
   for (i = 32; i < 42; ++i) {
-    newchild[i].style.backgroundColor = "#f86624";
+    newchild[i].style.backgroundColor = "brown";
   }
   // node.style(1,3);
   // console.log
@@ -63,3 +63,18 @@ window.addEventListener("load", () => {
     };
   }
 });
+var x = document.getElementById("myAudio");
+var play = document.getElementById("play")
+var pause = document.getElementById("pause")
+play.addEventListener("click" , () =>{
+  console.log("test")
+  x.play();
+  play.style.display= "none";
+  pause.style.display= "block";
+})
+pause.addEventListener("click", () => {
+  x.pause();
+  play.style.display= "block";
+  pause.style.display="none";
+})
+x.play();
