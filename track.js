@@ -1,37 +1,63 @@
 window.addEventListener("load", () => {
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 50; i++) {
     var node = document.createElement("div");
-    var att = document.createAttribute("class");  
-    att.value = 'child';
+    var att = document.createAttribute("class");
+    att.value = "child";
     node.setAttributeNode(att);
-    
-    node.id =  "child" + eval(i+1);
+    node.id = "child" + eval(i + 1);
     document.getElementsByClassName("parent")[0].appendChild(node);
   }
+  var newchild = document.getElementById("parent").children;
+  console.log(newchild);
 
-  var ans = Math.floor((Math.random() * 20) + 1);
-  console.log(ans);
-  var sel = "child"+ans;
+  for (i = 2; i < 12; ++i) {
+    newchild[i].style.backgroundColor = "#f86624";
+  }
+  for (i = 22; i < 32; ++i) {
+    newchild[i].style.backgroundColor = "#2ab7ca";
+  }
+  for (i = 32; i < 42; ++i) {
+    newchild[i].style.backgroundColor = "#f86624";
+  }
+  // node.style(1,3);
+  // console.log
+
+  var ans = Math.floor(Math.random() * 50 + 1);
+  document.getElementById("num").innerHTML = ans;
+  // console.log(ans);
+  var sel = "child" + ans;
   var elements = document.getElementsByClassName("child");
   for (var i = 0; i < elements.length; i++) {
     elements[i].onclick = function () {
-      // remove class from sibling
-     
       var el = elements[0];
       while (el) {
         if (el.tagName === "DIV") {
-          //remove class
           el.classList.remove("bak");
         }
-        // pass to the new sibling
         el = el.nextSibling;
       }
-
       this.classList.add("bak");
-      
-      if(this.id.localeCompare(sel)==0)
-      console.log(this.id)
-      alert("correct ans")   
+      var btn = document.getElementById("myBtn");
+      var span = document.getElementsByClassName("close")[0];
+      if (this.id === sel){
+        var modal = document.getElementById("correct");
+      }
+      else {
+        var modal = document.getElementById("wrong");
+      }
+        btn.onclick = function () {
+          modal.style.display = "block";
+        };
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     };
   }
 });

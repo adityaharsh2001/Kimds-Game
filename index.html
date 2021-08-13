@@ -8,37 +8,50 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Add</title>
   </head>
   <body>
-    <audio id="myAudio">
+    <!-- <audio id="myAudio">
       <source src="wrong.mp3" type="audio/mpeg" />
-    </audio>
-
+    </audio> -->
     <header>
       <div class="container">
         <div class="nav">
-          <h2>
-            <span><i class="fa fa-trophy" aria-hidden="true"></i></span> MATH 4
-            KIDS
-          </h2>
-          <nav>
-            <ul>
-              <li class="current"><a href="index.html">Add</a></li>
-              <li><a href="subtract.html">Subtract</a></li>
-              <li><a href="multiply.html">Multiply</a></li>
-              <li><a href="divide.html">Divide</a></li>
-              <li><a href="nline.html">Number Line</a></li>
-            </ul>
-          </nav>
+          <h1>Locate The Numbers</h1>
         </div>
       </div>
     </header>
-
-    <div class="parent" id="myList">
+    <div class="wrapper">
+      <div class="parent" id="parent">
+        <div class="rail1"></div>
+        <div class="rail2"></div>
+      </div>
+      <div class="ques">
+        <h1 style="color: #f86624">Here’s the number track from 1 to 50</h1>
+        <h1 style="color: #2ab7ca">Locate number</h1>
+        <h1 style="color: yellowgreen" id="num"></h1>
+      </div>
+      <div>
+        <div class="cont">
+          <button id="myBtn">Submit</button>
+        </div>
+        <!-- The Modal -->
+        <div id="correct" class="modal">
+          <!-- Modal content -->
+          <div class="success alert">
+            <div class="alert-body" style="padding-bottom: 20px">Great Job</div>
+            <span class="alert-body close">Try Again</span>
+          </div>
+        </div>
+        <div id="wrong" class="modal">
+          <!-- Modal content -->
+          <div class="error alert">
+            <div class="alert-body" style="padding-bottom: 20px">Error !</div>
+            <span class="alert-body close">Try Again</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!--  -->
     <script src="track.js"></script>
   </body>
 </html>

@@ -7,77 +7,50 @@
 
 body {
   font-family: "Luckiest Guy", cursive;
-  background-color: #e6e6ea;
+  width: 100vh;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 header {
   background: #fe4a49;
+  width: 100vw;
 }
-
-/* .container{
-  width: 95%;
-  margin: auto;
-} */
 
 .nav {
   overflow: hidden;
   background: #fe4a49;
   color: #fff;
   padding: 20px 0;
+  width: 100vw;
+  text-align: center;
 }
-
-.nav h2 {
-  font-size: 2rem;
-  float: left;
-}
-
-nav {
-  float: right;
-}
-
-nav ul {
-  list-style-type: none;
-}
-
-nav li {
-  font-size: 1.3rem;
-  margin-top: 5px;
-  float: left;
-  padding: 0 15px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.current a::after {
-  content: "-";
-  font-size: 4px;
-  background-color: white;
-  display: block;
-}
-
 .wrapper {
-  display: grid;
-  grid-template-columns: 82% 18%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
-.equation {
+.ques {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.9);
-  font-size: 5.2vw;
-  background: #fff;
+  flex-direction: column;
+  font-size: 1.5vw;
   border-radius: 3px;
   text-align: center;
-  margin: 10px 10px 0px 10px;
+  padding-top: 30px;
 }
 
-.equation h1 {
+.ques h1 {
   display: inline;
-  padding: 20px;
+  padding: 10px;
 }
 
 .answer-options {
@@ -97,7 +70,7 @@ nav a {
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.9);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .nav h2 {
     font-size: 1.5rem;
     float: none;
@@ -121,7 +94,7 @@ nav a {
     text-align: center;
   }
 
-  .equation h1 {
+  .ques h1 {
     display: inline;
     padding: 10px;
   }
@@ -129,29 +102,223 @@ nav a {
   nav li {
     font-size: 0.8rem;
   }
-}
+} */
 
 .parent {
   display: flex;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+}
+.child {
+  height: 80px;
+  width: 1vw;
+  margin-right: 10px;
+  background-color: yellowgreen;
+  z-index: 2;
+}
+
+.bak {
+  background-color: red !important;
+  color: #fff;
+  font-weight: bold;
+}
+
+.rail1 {
+  position: absolute;
+  background-color: black;
+  height: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+.rail2 {
+  position: absolute;
+  background-color: black;
+  height: 10px;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.box {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.alert {
+  margin-top: 25px;
+  background-color: #fff;
+  font-size: 25px;
+  text-align: center;
+  width: 300px;
+  height: 100px;
+  padding-top: 150px;
+  position: relative;
+  border: 1px solid #efefda;
+  border-radius: 2%;
+  box-shadow: 0px 0px 3px 1px #ccc;
+}
+
+.alert::before {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border-radius: 100%;
+  inset: 20px 0px 0px 100px;
+  font-size: 60px;
+  line-height: 100px;
+  border: 5px solid gray;
+  animation-name: reveal;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
+
+.alert > .alert-body {
+  opacity: 0;
+  animation-name: reveal-message;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes reveal-message {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.success {
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  
-  cursor: pointer;
-  background-color: #ddd;
-}
-.child {
-  height: 80px;
-  width: 20px;
-  margin-right: 10px;
-  background-color: green;
 }
 
-.bak {
-  background-color: red;
-  color: #fff;
+.success::before {
+  content: "✓";
+  background-color: #eff;
+  box-shadow: 0px 0px 12px 7px rgba(200, 255, 150, 0.8) inset;
+  border: 5px solid green;
+}
+
+.error {
+  color: red;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.error::before {
+  content: "✗";
+  background-color: #fef;
+  box-shadow: 0px 0px 12px 7px rgba(255, 200, 150, 0.8) inset;
+  border: 5px solid red;
+}
+
+@keyframes reveal {
+  0% {
+    border: 5px solid transparent;
+    color: transparent;
+    box-shadow: 0px 0px 12px 7px rgba(255, 250, 250, 0.8) inset;
+    transform: rotate(1000deg);
+  }
+  25% {
+    border-top: 5px solid gray;
+    color: transparent;
+    box-shadow: 0px 0px 17px 10px rgba(255, 250, 250, 0.8) inset;
+  }
+  50% {
+    border-right: 5px solid gray;
+    border-left: 5px solid gray;
+    color: transparent;
+    box-shadow: 0px 0px 17px 10px rgba(200, 200, 200, 0.8) inset;
+  }
+  75% {
+    border-bottom: 5px solid gray;
+    color: gray;
+    box-shadow: 0px 0px 12px 7px rgba(200, 200, 200, 0.8) inset;
+  }
+  100% {
+    border: 5px solid gray;
+    box-shadow: 0px 0px 12px 7px rgba(200, 200, 200, 0.8) inset;
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.close {
+  color: #fe4a49 !important;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.close {
+  color: #aaaaaa;
+  position: relative;
+  font-size: 28px;
   font-weight: bold;
+  z-index: 5;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 40px;
+  font-weight: bold;
+  font-size: 40px;
+  font-family: "Luckiest Guy", cursive;
+  position: relative;
+}
+.cont {
+  transform: translate(-50%, -50%);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+}
+button {
+  color: rgb(15, 134, 15);
 }
