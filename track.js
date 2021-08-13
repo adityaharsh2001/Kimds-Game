@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
     document.getElementsByClassName("parent")[0].appendChild(node);
   }
   var newchild = document.getElementById("parent").children;
-  console.log(newchild);
+  // console.log(newchild);
 
   for (i = 2; i < 12; ++i) {
     newchild[i].style.backgroundColor = "#f86624";
@@ -38,25 +38,28 @@ window.addEventListener("load", () => {
       }
       this.classList.add("bak");
       var btn = document.getElementById("myBtn");
-      var span = document.getElementsByClassName("close")[0];
-      if (this.id === sel){
+      if (this.id === sel) {
         var modal = document.getElementById("correct");
-      }
-      else {
+        var span = document.getElementsByClassName("close")[0];
+      } else {
         var modal = document.getElementById("wrong");
       }
-        btn.onclick = function () {
-          modal.style.display = "block";
-        };
+      btn.onclick = function () {
+        modal.style.display = "block";
+        var span = document.getElementsByClassName("close")[1];
 
-      span.onclick = function () {
-        modal.style.display = "none";
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
       };
 
       window.onclick = function (event) {
         if (event.target == modal) {
           modal.style.display = "none";
         }
+      };
+      span.onclick = function () {
+        modal.style.display = "none";
       };
     };
   }
