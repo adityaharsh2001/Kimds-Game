@@ -3,9 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./style.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   </head>
   <body>
-    <section class="container">
+    <audio id="myAudio">
+      <source src="./public/audio/music.mpeg" type="audio/ogg" />
+      <source src="./public/audio/music.mpeg" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <header>
+        <div class="nav">
+          <h1>MAKE TEN</h1>
+          <li>
+            <h2 id="play" type="button" style="display: none;"><i class="fas fa-play"></i></i></h2>
+            <h2 id="pause" type="button" ><i class="fas fa-pause"></i></h2>
+          </li>
+        </div>
+    </header>
+    <!-- <section class="section1">
+        
+    </section> -->
+    <section class="container section3">
       <div class="drag_container">
         <img class="brush draggable" src="./brush.png" alt=""></img>
         <img class="brush draggable" src="./brush.png" alt=""></img>
@@ -29,6 +49,26 @@
         <img class="brush draggable" src="./brush.png" alt=""></img>
       </div>
     </section>
+    <div>
+      <div class="cont">
+        <button id="myBtn" class="btn first">Submit</button>
+      </div>
+      <!-- The Modal -->
+      <div id="correct" class="modal">
+        <!-- Modal content -->
+        <div class="success alert">
+          <div class="alert-body" style="padding-bottom: 20px">Great Job</div>
+          <span class="alert-body close">Try Again</span>
+        </div>
+      </div>
+      <div id="wrong" class="modal">
+        <!-- Modal content -->
+        <div class="error alert">
+          <div class="alert-body" style="padding-bottom: 20px">Error !</div>
+          <span class="alert-body close">Try Again</span>
+        </div>
+      </div>
+    </div>
     <section class="sec2" id="sec2">
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

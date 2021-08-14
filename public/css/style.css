@@ -241,9 +241,9 @@ header {
   z-index: 100;
   left: 0;
   top: 0;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto; 
+  width: 100vw;
+  height: 100vh;
 }
 
 .close {
@@ -257,16 +257,12 @@ header {
   cursor: pointer;
 }
 
-.modal {
+/* .modal {
   display: none;
   z-index: 2;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
+  position: fixed;
+  
+} */
 
 .close {
   color: #aaaaaa;
