@@ -1,46 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 body {
-  font-family: sans-serif;
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  background-color: antiquewhite;
+  padding: 0;  overflow: hidden; 
+
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: url(https://cdn.dribbble.com/users/3474264/screenshots/11222954/media/238ffe693cece80e5add668b12937b85.png);
+  background-size: cover;
+
 }
 
-.draggable {
+/* .draggable {
   margin: 2px;
   text-align: center;
   font-size: 30px;
   padding: 2px 10px;
   float: left;
   z-index: 2;
-}
-
+} */
+/* .bg {
+} */
 .drag_container {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 50px);
   margin-bottom: 10px;
-
+  margin-right: 40px;
 }
 .container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url(./clipart2773461.png);
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center;
 }
 #droppable {
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
-  width: 80vw;
+  position: relative;
+  width: 35vw;
   height: 50vh;
-  background: #333;
   color: white;
-  font-size: 20px;
   font-variant: small-caps;
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 50px);
+  grid-template-columns: repeat(3, 15%);
+  grid-template-rows: repeat(3, 10%);
   clear: both;
 }
 
@@ -55,8 +67,8 @@ body {
 }
 
 .brush {
-  width: 95%;
-  max-width: 120px;
+  width: 10vw;
+  max-width: 100px;
   margin-top: 20px;
   margin-left: 20px;
 }
