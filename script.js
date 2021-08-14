@@ -71,14 +71,17 @@ pause.addEventListener("click", () => {
 })
 x.play();
 
-$( '.links a' ).on( 'click', function(e){
-	
-  var href = $(this).attr( 'href' );
-  
-  $( 'html, body' ).animate({
-		scrollTop: $( href ).offset().top
-  }, '300' );
-	
-  e.preventDefault();
+$(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
 
+        window.location.hash = hash;
+      });
+    } // End if
+  });
 });
