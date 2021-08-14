@@ -9,8 +9,8 @@ for (var i = 0; i < brush; i++) {
   document.getElementsByClassName("parent")[0].appendChild(node);
 }
 const counter = () => {
-  var count = brush;
   $(function () {
+    var count = brush;
     $(".draggable").draggable();
     $("#droppable").droppable({
       drop: function (event, ui) {
@@ -53,3 +53,32 @@ const counter = () => {
   });
 };
 counter();
+
+
+var x = document.getElementById("myAudio");
+var play = document.getElementById("play")
+var pause = document.getElementById("pause")
+play.addEventListener("click" , () =>{
+  console.log("test")
+  x.play();
+  play.style.display= "none";
+  pause.style.display= "block";
+})
+pause.addEventListener("click", () => {
+  x.pause();
+  play.style.display= "block";
+  pause.style.display="none";
+})
+x.play();
+
+$( '.links a' ).on( 'click', function(e){
+	
+  var href = $(this).attr( 'href' );
+  
+  $( 'html, body' ).animate({
+		scrollTop: $( href ).offset().top
+  }, '300' );
+	
+  e.preventDefault();
+
+});
