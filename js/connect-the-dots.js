@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  //coordinates of the 'dots'
+  
   var coords = [
     [297 -130 , 316- 100],
     [640 -130, 598 - 100],
@@ -13,18 +13,17 @@ $(document).ready(function () {
     [1270 -130, 600 -100]
   ];
 
-  //draw all the dots
-  for (i = 0; i < coords.length; i++) {
+    for (i = 0; i < coords.length; i++) {
     css = {
       left: coords[i][0] -6 ,
       top: coords[i][1] -17 ,
-      zIndex: coords.length - i, //to ensure lower numbers are on top of higher ones in case of overlap
+      zIndex: coords.length - i, 
     };
 
-    //set the first dot active
+  
     class_active = i == 0 ? " active" : "";
 
-    // html/css for the dot
+  
     div = $(
       '<div id="dot_container_' +
         i +
@@ -67,20 +66,16 @@ $(document).ready(function () {
       var angle = (Math.atan(m) * 180) / Math.PI; //angle of the line
       var d = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)); //length of the segment
       var transform;
-
-      // the (css) transform angle depends on the direction of movement of the line
       if (x2 >= x1) {
         transform = (360 + angle) % 360;
       } else {
         transform = 180 + angle;
       }
 
-      // add the (currently invisible) line to the page
       var id = "line_" + new Date().getTime();
       var line = "<div id='" + id + "'class='line'>&nbsp;</div>";
       $("#canvas").append(line);
 
-      //rotate the line
       $("#" + id).css({
         left: x1,
         top: y1,
@@ -97,7 +92,6 @@ $(document).ready(function () {
         "-o-transform-origin": "0px 0px",
       });
 
-      // 'draw' the line
       $("#" + id).animate(
         {
           width: d,
@@ -105,15 +99,12 @@ $(document).ready(function () {
         400,
         "linear",
         function () {
-          //make the next dot active after the line is drawn
           if (i < coords.length)
             $("div#dot_container_" + (i + 1)).addClass("active");
         }
       );
 
-      //if it's the last dot, reveal the image
       if (i == coords.length - 1) {
-        // revealImage();
       }
     }
   });
